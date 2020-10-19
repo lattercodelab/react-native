@@ -7,9 +7,8 @@ module.exports = {
       node: {
         paths: ['src'],
         alias: {
-          _expand: './src/components/expand',
-          _input: './src/components/input',
-          _list: './src/components/list'
+          _view: './src/view',
+          _page: './src/components/page'
         }
       }
     }

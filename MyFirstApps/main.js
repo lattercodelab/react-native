@@ -5,35 +5,37 @@ import { SafeAreaView, StatusBar, ScrollView, Text, View } from 'react-native';
 /** Navigation library */
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 /** Component */
-import Home from './src/components/home';
-
-/** Child View */
-import Columns_1 from './src/components/list/columns_1';
-import Row_1 from './src/components/list/row_1';
-import ListView_1 from './src/components/list/listview_1';
+import HomePage from './src/components/page/HomePage';
+import LayoutPage from './src/components/page/LayoutPage';
 
 const Stack = createStackNavigator();
-const MyStack = () => {
+const MyStack = () =>{
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen children={() =>{
-                    <Text>Hello World</Text>
-                }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomePage} options={{
+                title: 'Home',
+                headerStyle: {
+                    backgroundColor: '#000'
+                },
+                headerTintColor: '#fff'
+            }} />
+            <Stack.Screen name="Layout" component={LayoutPage} />
+        </Stack.Navigator>
     )
 }
 
-export default Main = () =>{
+export default Main = () => {
     return (
         <>
-            <StatusBar barStyle='dark-content' />
-            <SafeAreaView>
+        <SafeAreaProvider>
+            <NavigationContainer>
                 <MyStack />
-            </SafeAreaView>
+            </NavigationContainer>
+        </SafeAreaProvider>
         </>
     )
 }
+
