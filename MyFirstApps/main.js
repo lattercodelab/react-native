@@ -10,6 +10,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 /** Component */
 import HomePage from './src/components/page/HomePage';
 import LayoutPage from './src/components/page/LayoutPage';
+import LayoutPractices from './src/components/page/LayoutPractices';
 
 const Stack = createStackNavigator();
 const MyStack = () =>{
@@ -23,6 +24,7 @@ const MyStack = () =>{
                 headerTintColor: '#fff'
             }} />
             <Stack.Screen name="Layout" component={LayoutPage} />
+            <Stack.Screen name="LayoutPractices" component={LayoutPractices} />
         </Stack.Navigator>
     )
 }

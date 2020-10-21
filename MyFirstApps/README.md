@@ -14,6 +14,14 @@ $ npx react-native init MyProject
 $ npm install
 ```
 
+## Install React Native Library
+```
+$ npm install @react-native-community/picker --save
+
+// if react native version < 0.60, need to manually to link
+$ npx react-native link @react-native-community/picker
+```
+
 ## What's this?
 
 1) Empty tag "<> </>" is react native fragment component that for multiple elements.
@@ -69,10 +77,22 @@ class Welcome extends React.Componemnt{
 }
 ```
 
-
 ## Some case we used npm to install that occur problem.
 
-1) if build android or ios didn't work we can try to clean up the the cache of project and re-build the config.
+* if build android or ios didn't work we can try to clean up the the cache of project and re-build the config.
+```
+$ cd android // android project root
+$ chmod +x ./gradlew // make sure the "gralew" grant the access permission.
+$ ./gradlew --recompile-scripts 
+$ ./gradlew tasks // if not work you can show all task
+```
+
+* Issue : The development server returned 500
+
+* issue : npm install error
+1) Kill the "watchman" of process or all related about the node process.
+2) try python version updated.
+3) npm install -g node-gyp
 
 ## Famous React Native library
 
