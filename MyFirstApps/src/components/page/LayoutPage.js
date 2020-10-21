@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-import { ButtonOne } from './../../view/button/ButtonOne';
-import { SwitchOne } from './../../view/button/SwitchOne';
+import ButtonOne from './../../view/button/ButtonOne';
+import SwitchOne from './../../view/button/SwitchOne';
 
 export default class Layoutpage extends Component{
+    
+    elements = [
+        <ButtonOne title="Button One" />,
+        <SwitchOne />
+    ]
+
+    state = {
+        key: 1,
+        name: 'none',
+        element: null,
+        selectedValue: 0
+    }
 
     constructor(props){
         super(props);
-        this.state = {
-            key: 1,
-            name: 'none',
-            element: null,
-            selectedValue: 0
-        }
-    }
-
-    _addButtonOne(){
-        this.setState({
-            
-        })
+        this.state.element = this.elements[0]
     }
 
     render(){
@@ -27,29 +28,22 @@ export default class Layoutpage extends Component{
             <View>
                 <Picker 
                     selectedValue={this.state.selectedValue}
-                    style={{height: 50, backgroundColor:'red'}}
+                    style={{height: 50, padding:10}}
                     onValueChange={ (itemValue, itemIndex) => { 
+                        
                         this.setState({
-                            element: itemValue,
+                            element: this.elements[itemIndex],
                             key: itemIndex,
-                            selectedValue: itemValue
+                            selectedValue: itemIndex
                         })
-
-                        switch(itemValue){
-                            case 0:
-                                _addButtonOne()
-                                break;
-                            case 1:
-
-                                break;
-                        }
+                        
                     }}>
-                        <Picker.Item label="Button One" value="0" />
-                        <Picker.Item label="Swicth One" value="1" />
+                        <Picker.Item label="Button One" value={ 0 } />
+                        <Picker.Item label="Swicth One" value={ 1 } />
                 </Picker>
                 <ScrollView>
-                    <View>
-                        { this.setState.element != null }
+                    <View style={{backgroundColor: '#000'}}>
+                        { this.state.element }
                     </View>
                 </ScrollView>
             </View>

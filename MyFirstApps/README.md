@@ -22,6 +22,15 @@ $ npm install @react-native-community/picker --save
 $ npx react-native link @react-native-community/picker
 ```
 
+## Install Standalone DevTools apps
+```
+$ npm install -g react-devtools
+$ npx react-devtools
+
+// To open developer menu press "d" 
+// select "Debugging" and "Toggle Inspector" 
+```
+
 ## What's this?
 
 1) Empty tag "<> </>" is react native fragment component that for multiple elements.
@@ -88,11 +97,9 @@ $ ./gradlew tasks // if not work you can show all task
 ```
 
 * Issue : The development server returned 500
-
-* issue : npm install error
-1) Kill the "watchman" of process or all related about the node process.
-2) try python version updated.
-3) npm install -g node-gyp
+```
+$ npm rebuild
+```
 
 ## Famous React Native library
 

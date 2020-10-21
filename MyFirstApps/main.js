@@ -11,20 +11,24 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import HomePage from './src/components/page/HomePage';
 import LayoutPage from './src/components/page/LayoutPage';
 import LayoutPractices from './src/components/page/LayoutPractices';
+import NetworkPage from './src/components/page/NetworkPage';
+import AppStatTest from './src/other/AppStateTest';
 
 const Stack = createStackNavigator();
 const MyStack = () =>{
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomePage} options={{
-                title: 'Home',
+            <Stack.Screen name="Home" component={ HomePage } options={{
+                title: 'Welcome',
                 headerStyle: {
-                    backgroundColor: '#000'
+                    backgroundColor: '#69bdd2'
                 },
-                headerTintColor: '#fff'
+                headerTintColor: '#000'
             }} />
-            <Stack.Screen name="Layout" component={LayoutPage} />
-            <Stack.Screen name="LayoutPractices" component={LayoutPractices} />
+            <Stack.Screen name="Layout" component={ LayoutPage } />
+            <Stack.Screen name="Network" component={ NetworkPage } />
+            <Stack.Screen name="AppStateTest" component={ AppStatTest } />
+            <Stack.Screen name="LayoutPractices" component={ LayoutPractices } />
         </Stack.Navigator>
     )
 }

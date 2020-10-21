@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     View,
     Button,
-    ScrollView
+    ScrollView,
+    StyleSheet
 } from 'react-native'
 
 export default class HomePage extends Component{
@@ -10,11 +11,21 @@ export default class HomePage extends Component{
         return (
             <>
             <ScrollView>
-            <View> 
-                <Button title="Layout" onPress={() => this.props.navigation.navigate('Layout')} />
+            <View style={{ flexDirection: 'column', padding: 10, justifyContent:'center', alignItems:'stretch' }}> 
+                <Button title="Layout" onPress={ () => this.props.navigation.navigate('Layout') } style={ styles.buttonStyle } />
+                <Button title="Network" onPress={ () => this.props.navigation.navigate('Network') } style={ styles.buttonStyle } />
+                <Button title="App State Test" onPress={ () => this.props.navigation.navigate('AppStateTest') } style={ styles.buttonStyle } />
             </View>
             </ScrollView>
             </>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    buttonStyle: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column'
+    }
+})
