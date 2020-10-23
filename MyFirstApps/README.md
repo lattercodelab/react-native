@@ -2,6 +2,7 @@
 
 Offical Doc [Link](https://reactnative.dev/)
 Offical Git [Link](https://github.com/facebook/react-native)
+Gradle Command [Link](https://developer.android.com/studio/build/building-cmdline)
 
 ## Setting up a new project. 
 ```
@@ -92,13 +93,22 @@ class Welcome extends React.Componemnt{
 ```
 $ cd android // android project root
 $ chmod +x ./gradlew // make sure the "gralew" grant the access permission.
-$ ./gradlew --recompile-scripts 
+$ ./gradlew clean
 $ ./gradlew tasks // if not work you can show all task
 ```
+
+* if your has install Java SDK version: 14 or above that the "./gradlew" execute failed. Since the Java version not support.
+1) gradle-wrapper.properties to change other version 
+2) e.g distributionUrl=https\://services.gradle.org/distributions/gradle-6.3-all.zip
 
 * Issue : The development server returned 500
 ```
 $ npm rebuild
+```
+
+* if app hot re-load not work that we have to clean up the cache and re-install.
+```
+$ npx react-native start --reset-cache
 ```
 
 ## Famous React Native library

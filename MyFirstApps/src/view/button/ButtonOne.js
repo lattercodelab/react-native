@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {
-    Button
+    Button,
+    Alert
 } from 'react-native';
 
 
 export default class ButtonOne extends Component {
     render(){
         return (
-            <Button onPress={this.props.onPress} title={this.props.title} />
+            <Button onPress={() => Alert.alert('Button with adjusted color pressed')} title={this.props.title} />
         )
     }
 };

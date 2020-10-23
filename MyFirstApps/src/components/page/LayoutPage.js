@@ -3,12 +3,18 @@ import { View, ScrollView, Text } from 'react-native';
 import { Picker } from '@react-native-community/picker';
 import ButtonOne from './../../view/button/ButtonOne';
 import SwitchOne from './../../view/button/SwitchOne';
+import ImageButtonOne from './../../view/button/ImageButtonOne';
+import ColumnsOne from './../../view/list/ColumnsOne';
+import RowOne from './../../view/list/RowOne';
 
 export default class Layoutpage extends Component{
     
     elements = [
         <ButtonOne title="Button One" />,
-        <SwitchOne />
+        <SwitchOne />,
+        <ImageButtonOne />,
+        <ColumnsOne />,
+        <RowOne />
     ]
 
     state = {
@@ -38,11 +44,16 @@ export default class Layoutpage extends Component{
                         })
                         
                     }}>
-                        <Picker.Item label="Button One" value={ 0 } />
-                        <Picker.Item label="Swicth One" value={ 1 } />
+                    
+                    <Picker.Item label="Button One" value={ 0 } />
+                    <Picker.Item label="Swicth One" value={ 1 } />
+                    <Picker.Item label="Image Button One" value={ 2 } />
+                    <Picker.Item label="Column One" value={ 3 } />
+                    <Picker.Item label="Row One" value={ 4 } />
+                    
                 </Picker>
                 <ScrollView>
-                    <View style={{backgroundColor: '#000'}}>
+                    <View style={{padding: 10}}>
                         { this.state.element }
                     </View>
                 </ScrollView>

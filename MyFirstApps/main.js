@@ -12,11 +12,12 @@ import HomePage from './src/components/page/HomePage';
 import LayoutPage from './src/components/page/LayoutPage';
 import LayoutPractices from './src/components/page/LayoutPractices';
 import NetworkPage from './src/components/page/NetworkPage';
-import AppStatTest from './src/other/AppStateTest';
+import AppStateTest from './src/other/AppStateTest';
 
 const Stack = createStackNavigator();
 const MyStack = () =>{
     return (
+        // @see : https://reactnavigation.org/docs/nesting-navigators/#navigating-to-a-screen-in-a-nested-navigator
         <Stack.Navigator>
             <Stack.Screen name="Home" component={ HomePage } options={{
                 title: 'Welcome',
@@ -27,7 +28,7 @@ const MyStack = () =>{
             }} />
             <Stack.Screen name="Layout" component={ LayoutPage } />
             <Stack.Screen name="Network" component={ NetworkPage } />
-            <Stack.Screen name="AppStateTest" component={ AppStatTest } />
+            <Stack.Screen name="AppStateTest" component={ AppStateTest } />
             <Stack.Screen name="LayoutPractices" component={ LayoutPractices } />
         </Stack.Navigator>
     )

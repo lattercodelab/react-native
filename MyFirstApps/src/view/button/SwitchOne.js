@@ -1,15 +1,39 @@
 import React from 'react';
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import {
-    Text
+    View,
+    Text,
+    Switch
 } from 'react-native';
 
-export default class SwitchOne extends Component{
+class SwitchOne extends Component{
     render(){
         return (
             <>
-            <Text>Switch One</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <Text style={{paddingRight: 20}}>{ "Your Option is : " + (this.props.isEnabled ? "Open" : "Close") }</Text>
+                <Switch
+                    trackColor={{ false: '#fff', true: 'red'}}
+                    thumbColor={this.props.isEnabled ? "#00fbff" : "#b703ff"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={this.props.toggleSwitch}
+                    value={this.props.isEnabled} />
+            </View>
             </>
         )
     }
+}
+
+export default () =>{
+
+    const [isEnabled, setIsEnabled] = useState(false)
+    const toggleSwitch = () =>{
+        setIsEnabled(
+            previousState => !previousState
+        )
+    }
+
+    return(
+        <SwitchOne isEnabled={isEnabled} toggleSwitch={toggleSwitch} />
+    )
 }
