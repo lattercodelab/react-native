@@ -32,6 +32,12 @@ $ npx react-devtools
 // select "Debugging" and "Toggle Inspector" 
 ```
 
+## other command
+```
+$ npx react-native start --port 8082
+$ npm rebuild
+```
+
 ## What's this?
 
 1) Empty tag "<> </>" is react native fragment component that for multiple elements.
@@ -103,7 +109,9 @@ $ ./gradlew tasks // if not work you can show all task
 
 * Issue : The development server returned 500
 ```
-$ npm rebuild
+// try use command build
+$ adb kill-server
+$ npx react-native run-android
 ```
 
 * if app hot re-load not work that we have to clean up the cache and re-install.

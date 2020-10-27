@@ -6,15 +6,27 @@ import SwitchOne from './../../view/button/SwitchOne';
 import ImageButtonOne from './../../view/button/ImageButtonOne';
 import ColumnsOne from './../../view/list/ColumnsOne';
 import RowOne from './../../view/list/RowOne';
+import ListViewOne from './../../view/list/ListViewOne';
+import TextInputOne from './../../view/input/TextInputOne';
+import TextInputTwo from './../../view/input/TextInputTwo';
+import RadioButtonOne from './../../view/button/RadioButtonOne';
+import CheckBoxOne from './../../view/button/CheckBoxOne';
+import SliderOne from './../../view/slider/sliderOne';
 
 export default class Layoutpage extends Component{
-    
+
     elements = [
         <ButtonOne title="Button One" />,
         <SwitchOne />,
         <ImageButtonOne />,
         <ColumnsOne />,
-        <RowOne />
+        <RowOne />,
+        <ListViewOne />,
+        <TextInputOne />,
+        <TextInputTwo />,
+        <RadioButtonOne onSelectedPosition={(position) => console.log("selected position: ", position)} />,
+        <CheckBoxOne />,
+        <SliderOne />
     ]
 
     state = {
@@ -50,13 +62,17 @@ export default class Layoutpage extends Component{
                     <Picker.Item label="Image Button One" value={ 2 } />
                     <Picker.Item label="Column One" value={ 3 } />
                     <Picker.Item label="Row One" value={ 4 } />
+                    <Picker.Item label="List One" value={ 5 } />
+                    <Picker.Item label="Input One" value={ 6 } />
+                    <Picker.Item label="Input Two" value={ 7 } />
+                    <Picker.Item label="RadioButton One" value={ 8 } />
+                    <Picker.Item label="CheckBox One" value={ 9 } />
+                    <Picker.Item label="Slider One" value={ 10 } />
                     
                 </Picker>
-                <ScrollView>
-                    <View style={{padding: 10}}>
-                        { this.state.element }
-                    </View>
-                </ScrollView>
+                <View style={{padding: 10}}>
+                    { this.state.element }
+                </View>
             </View>
         )
     }

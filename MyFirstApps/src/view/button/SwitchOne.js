@@ -13,7 +13,7 @@ class SwitchOne extends Component{
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                 <Text style={{paddingRight: 20}}>{ "Your Option is : " + (this.props.isEnabled ? "Open" : "Close") }</Text>
                 <Switch
-                    trackColor={{ false: '#fff', true: 'red'}}
+                    trackColor={{ false: 'green', true: 'red'}}
                     thumbColor={this.props.isEnabled ? "#00fbff" : "#b703ff"}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={this.props.toggleSwitch}
