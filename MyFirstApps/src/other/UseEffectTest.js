@@ -6,10 +6,24 @@ import {
 } from 'react-native';
 
 class UseEffectTest extends Component{
+
+    state = {
+        page: 0
+    }
+
     render(){
         return(
             <View>
-                <Button title="Add Count" onPress={() => this.props.setCount(count => count++ ) } />
+                <Button onPress={() => 
+                    {
+
+                        this.setState({
+                            page: this.state.page + 1
+                        });
+
+                        this.props.setPage(this.state.page)
+                    }
+                } title="Click here to update page" />
             </View>
         )
     }
@@ -17,26 +31,42 @@ class UseEffectTest extends Component{
 
 export default () => {
 
-    const [count, setCount] = useState(0);
+    const [page, setPage] = useState(0);
+
+    // Example one
+    // The clean-up function runs before the component is removed from the UI to 
+    // prevent memory leaks
+    
     useEffect(() => {
-        console.log("Count : ${count}")
-    }, count)
+        // componentWillMount
+        // const subscription = props.source.subscribe();
+        console.log("start");
+        return () =>{
+            // componentWillUnmount
+            // Clean up the subscription
+            // subscription.unsubscribe();
+            
+            console.log("end");
 
-    // useEffect(() => {
+        }
+    })
 
-    //     const interval = setTimeout(() => {
-    //         console.log("Add")
-    //         setCount(count => count + 1 )
-    //     }, 5000);
-        
-    //     return () =>{
-    //         console.log("Reset")
-    //         clearInterval(interval);
-    //         setCount(count => 10 )
-    //     }
-    // }, count)
+    // Example Two
+    // Unlike componentDidMount and componentDidUpdate, the function passed to useEffect 
+    // fires after layout and paint, during a deferred event
+
+    // We don’t need to create a new subscription on every update, 
+    // only if the page has changed.
+    useEffect(() => {
+        // const subscription = props.source.subscribe();
+        console.log("Create New One");
+        return () =>{
+            // subscription.unsubscribe();
+            console.log("Clear");
+        }
+    }, [page])
 
     return(
-        <UseEffectTest setCount={setCount} />
+        <UseEffectTest setPage={setPage} />
     )
 }
