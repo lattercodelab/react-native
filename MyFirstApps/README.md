@@ -13,6 +13,10 @@ $ npx react-native init MyProject
 ## Re-build the exists project.
 ```
 $ npm install
+// android
+$ gradlew
+// ios
+$ pod install
 ```
 
 ## Install React Native Library
@@ -101,6 +105,7 @@ $ cd android // android project root
 $ chmod +x ./gradlew // make sure the "gralew" grant the access permission.
 $ ./gradlew clean
 $ ./gradlew tasks // if not work you can show all task
+$ adb logcat *:E // log error
 ```
 
 * if your has install Java SDK version: 14 or above that the "./gradlew" execute failed. Since the Java version not support.
@@ -111,6 +116,14 @@ $ ./gradlew tasks // if not work you can show all task
 ```
 // try use command build
 $ adb kill-server
+// macos
+$ ps -ax | grep "watchman"
+$ kill PID
+
+// windows
+$ tasklist | grep "watchman*"
+$ taskkill /F /IM watchman.exe
+
 $ npx react-native run-android
 ```
 

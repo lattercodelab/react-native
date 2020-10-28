@@ -13,6 +13,7 @@ import LayoutPage from './src/components/page/LayoutPage';
 import LayoutPractices from './src/components/page/LayoutPractices';
 import NetworkPage from './src/components/page/NetworkPage';
 import AppStateTest from './src/other/AppStateTest';
+import UseEffectTest from './src/other/UseEffectTest';
 
 const Stack = createStackNavigator();
 const MyStack = () =>{
@@ -30,6 +31,7 @@ const MyStack = () =>{
             <Stack.Screen name="Network" component={ NetworkPage } />
             <Stack.Screen name="AppStateTest" component={ AppStateTest } />
             <Stack.Screen name="LayoutPractices" component={ LayoutPractices } />
+            <Stack.Screen name="UseEffectTest" component={ UseEffectTest } />
         </Stack.Navigator>
     )
 }

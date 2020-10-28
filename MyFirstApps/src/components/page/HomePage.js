@@ -8,19 +8,23 @@ import {
 
 export default class HomePage extends Component{
 
+    openPage = (title, path) => {
+        return (
+            <View style={{ marginBottom: 10 }}>
+                <Button title={title} onPress={() => this.props.navigation.navigate(path)} />
+            </View>
+        )
+    }
+
     render() {
         return (
             <>
             <ScrollView>
             <View style={{ flexDirection: 'column', justifyContent:'center', margin: 10}}> 
-                <View style={{ marginBottom: 10}}>
-                    <Button title="Layout" color="#999" onPress={ () => this.props.navigation.navigate('Layout') } />
-                </View>
-                <View style={{ marginBottom: 10}}>
-                    <Button title="Network" onPress={ () => this.props.navigation.navigate('Network') } /></View>
-                <View style={{ marginBottom: 10}}>
-                    <Button title="App State Test" onPress={ () => this.props.navigation.navigate('AppStateTest') } />
-                </View>
+                { this.openPage("Layout", "Layout") }
+                { this.openPage("Network", "Network") }
+                { this.openPage("AppState Test", "AppStateTest") }
+                { this.openPage("UseEffect Test", "UseEffectTest") }
             </View>
             </ScrollView>
             </>

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-type Props = {
-    foo: Number,
-    bar?: String
-}
+// type Props = {
+//     foo: Number,
+//     bar?: String
+// }
 
-type State = {
-    count: Number
-}
+// type State = {
+//     count: Number
+// }
 
-class MyComponent extends Component<Props, State>{
+// class MyComponent extends Component<Props, State>{
     
-}
+// }
